@@ -27,7 +27,7 @@ class wingClass {
 
 document.addEventListener("click", function(e) {
   if (e.target.id == "plain") {
-    var wingOrderPlain = new wingClass(document.getElementById("wing-amount").value, 0.98, "<img src='https://avatars0.githubusercontent.com/u/150330?s=64&v=4'/>");
+    var wingOrderPlain = new wingClass(document.getElementById("wing-amount").value, 0.98, "<img src='assets/wing.png'/>");
     wingOrderPlain.addWingAmountToDom();
     wingOrderPlain.getPrice();
     wingOrderPlain.getCalories()
