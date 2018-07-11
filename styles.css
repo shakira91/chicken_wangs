@@ -5,3 +5,51 @@ body {
     background-attachment: fixed;
     background-position: 50% 70%;
 }
+
+#bucket {
+    position: relative;
+    width: 825px;
+    height: 400px;
+    float: right;
+    top: 148px;
+    left: -157px;
+}
+
+.wing-container {
+    opacity: 0;
+	-webkit-animation: pop 0.2s 1;
+	animation: pop 0.2s 1;
+	-webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    display: inline-block;
+}
+
+.wing-container:nth-of-type(even) .wing {
+    -webkit-transform:rotate(-138deg);
+    -moz-transform: rotate(-138deg);
+    -ms-transform: rotate(-138deg);
+    -o-transform: rotate(-138deg);
+    transform: rotate(-138deg);
+    width: 190px;
+}
+
+.wing-container:nth-of-type(odd) .wing {
+    -webkit-transform:rotate(-181deg);
+    -moz-transform: rotate(-181deg);
+    -ms-transform: rotate(-181deg);
+    -o-transform: rotate(-181deg);
+    transform: rotate(-181deg);
+    margin: 5px;
+    width: 190px;
+}
+
+@-webkit-keyframes pop {
+    0% { 
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
