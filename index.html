@@ -3,24 +3,58 @@
 <head>
 <title>Wingz</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">
 </head>
 <body>
-    <span id="wing-amount">
-    </span>
-    <span id="more">+</span><br>
-      <span id="plain">Plain</span>
-      <span id="bbq">BBQ</span>
-      <span id="honey-bbq">Honey BBQ</span>
-      <span id="sweet-chilli">Sweet Chilli</span>
+    
+    
+    
+<aside id="side-bar">
+    <div>
+        <h2>Plain</h2>
+        <input type="radio" name="plain" value="2">2
+        <input type="radio" name="plain" value="4">4
+        <input type="radio" name="plain" value="6">6
+        <input type="radio" name="plain" value="8">8
+        <button id="plain">Add</button>
+    </div>
+    <div>
+        <h2>BBQ</h2>
+        <input type="radio" name="bbq" value="2">2
+        <input type="radio" name="bbq" value="4">4
+        <input type="radio" name="bbq" value="6">6
+        <input type="radio" name="bbq" value="8">8
+        <button id="bbq">Add</button>
+    </div>
+    <div>
+        <h2>Sweet Chilli</h2>
+        <input type="radio" name="sc" value="2">2
+        <input type="radio" name="sc" value="4">4
+        <input type="radio" name="sc" value="6">6
+        <input type="radio" name="sc" value="8">8
+        <button id="sweet-chilli">Add</button>
+    </div>
+    <div>
+          <span id="amount"></span><br>
+          <span id="calories"></span><br>
+          <span id="order-total"></span>   
+    <div>
+        <button id="clear">
+            Start Over
+        </button>
+    </div>
+    <div id="city-names">
+
+
+    </div>
+</aside>     
       
       <div id="bucket">
       
       </div>
       
       
-      <button id="clear">
-      Start Over
-      </button>
+      
       
 <script src="scripts.js"></script>
 </body>
