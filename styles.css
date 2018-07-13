@@ -4,6 +4,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: 50% 70%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
 }
 
 aside {
@@ -27,6 +29,90 @@ aside {
 aside h2 {
     font-family: 'Chela One', cursive;
     font-size: 3em;
+}
+
+.radio-wrapper {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .radio-wrapper input {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  .radio-wrapper:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  .radio-wrapper input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .radio-wrapper input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .radio-wrapper .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+#order-details {
+    font-size: 1.7em;
+    line-height: 2em;
+    margin: 20px 0px;
+}
+
+#clear, #finished button  {
+    border: none;
+    background-color: #821915;
+    color: white;
+    font-size: 1em;
+    padding: 10px 30px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+#user-city {
+    padding: 0 10px;
+    border: 1px solid;
+    height: 37px;
+    vertical-align: bottom;
+    width: 400px;
+}
+
+#plain, #bbq, #sweet-chilli {
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #bucket {
@@ -71,6 +157,30 @@ aside h2 {
     opacity: 0.4;
 }
 
+#finish-container {
+    position: fixed;
+    width: 100%;
+    background: #ffffffa1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#finished {
+    width: 860px;
+    background: white;
+    margin: 0 auto;
+    padding: 30px 55px;
+}
+ #finished h2 {
+     font-size: 2em;
+ }
+
+ #city-names {
+     cursor: pointer;
+ }
+
 @-webkit-keyframes pop {
     0% { 
         opacity: 0;
@@ -82,7 +192,7 @@ aside h2 {
     }
   }
 
-  @-webkit-keyframes pop {
+  @keyframes pop {
     0% { 
         opacity: 0;
         transform: scale(0.5);

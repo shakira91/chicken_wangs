@@ -68,10 +68,7 @@ function setUp(e) {
 
 var checkInputs = setInterval(function(){ 
     if (document.querySelectorAll(".disabled").length == 3) {
-        var button = document.createElement("button");
-        button.innerHTML = "Feeling for wings now, eh?";
-        button.setAttribute("id", "finish");
-        document.getElementById("side-bar").appendChild(button);
+        document.getElementById("finish-container").style.display = "block";
         clearInterval(checkInputs);
     }
 }, 1000);
@@ -83,40 +80,41 @@ function ajaxCall(url) {
     xhr.send();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
-          if (xhr.status == 200)
-          JSON.parse(xhr.responseText).location_suggestions.forEach(element => {
-            cityID.push(element.id);
-            var cityName = document.createElement("p");
-            cityName.innerHTML = element.name;
-            cityName.setAttribute("id", element.id);
-            document.getElementById("city-names").appendChild(cityName);
-
-            
-            
-        
-            // document.getElementById("city-name").innerHTML += element.name + "<br>"
-            // console.log(cityID)
-            // if (cityID) {
-            //     JSON.parse(xhr.responseText).restaurants.forEach(element => {
-            //         console.log(element)
-            //     });
-            // }
-          });  
-        }
-          else {
-            return xhr.statusText;
-         }
-      };
+            if (xhr.status == 200) { 
+                if(JSON.parse(xhr.responseText).location_suggestions){
+                    JSON.parse(xhr.responseText).location_suggestions.forEach(element => {
+                        cityID.push(element.id);
+                        var cityName = document.createElement("p");
+                        cityName.innerHTML = element.name;
+                        cityName.setAttribute("id", element.id);
+                        document.getElementById("city-names").appendChild(cityName);
+                    });
+                } else if (JSON.parse(xhr.responseText).restaurants.length > 0) {
+                    document.getElementById("city-names").style.display = "none";
+                    JSON.parse(xhr.responseText).restaurants.forEach((element)=>{
+                        document.getElementById("restaurants").innerHTML += "<br><strong>" + element.restaurant.name + "</strong><br>" + element.restaurant.location.address + "<br>" + element.restaurant.location.city + "<br><a href=" + element.menu_url + ">Check out the menu</a><br><br>"
+                    });
+                } else {
+                    alert("Sorry, Can't find any wing spots for that location.")
+                }
+                           
+            }           
+            else {
+                return xhr.statusText;
+            }
+        }  
+      
+    }  
 }
 
 
 document.addEventListener("click", function(e) { 
     setUp(e);
     if (e.target.id === "finish") {
-        var city = prompt("What city do you live in?");
+        var city = document.getElementById("user-city").value;
         ajaxCall("https://developers.zomato.com/api/v2.1/cities?q=" + city);
     }
     if (cityID.indexOf(parseInt(e.target.id)) > -1) {
-       ajaxCall("https://developers.zomato.com/api/v2.1/cities?entity_id="+ parseInt(e.target.id) + "&entity_type=city&q=wings");
+       ajaxCall("https://developers.zomato.com/api/v2.1/search?entity_id="+ parseInt(e.target.id) + "&entity_type=city&q=wings");
     }
 });

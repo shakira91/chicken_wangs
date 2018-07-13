@@ -12,47 +12,85 @@
 <aside id="side-bar">
     <div>
         <h2>Plain</h2>
-        <input type="radio" name="plain" value="2">2
-        <input type="radio" name="plain" value="4">4
-        <input type="radio" name="plain" value="6">6
-        <input type="radio" name="plain" value="8">8
+        <label class="radio-wrapper">2
+                <input type="radio" name="plain" value="2">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-wrapper">4
+                <input type="radio" name="plain" value="4">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-wrapper">6
+                <input type="radio" name="plain" value="6">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-wrapper">8
+                <input type="radio" name="plain" value="8">
+                <span class="checkmark"></span>
+            </label>
         <button id="plain">Add</button>
     </div>
     <div>
         <h2>BBQ</h2>
-        <input type="radio" name="bbq" value="2">2
-        <input type="radio" name="bbq" value="4">4
-        <input type="radio" name="bbq" value="6">6
-        <input type="radio" name="bbq" value="8">8
+        <label class="radio-wrapper">2
+                <input type="radio" name="bbq" value="2">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-wrapper">4
+                <input type="radio" name="bbq" value="4">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-wrapper">6
+                <input type="radio" name="bbq" value="6">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-wrapper">8
+                <input type="radio" name="bbq" value="8">
+                <span class="checkmark"></span>
+            </label>
         <button id="bbq">Add</button>
     </div>
     <div>
         <h2>Sweet Chilli</h2>
-        <input type="radio" name="sc" value="2">2
-        <input type="radio" name="sc" value="4">4
-        <input type="radio" name="sc" value="6">6
-        <input type="radio" name="sc" value="8">8
+        <label class="radio-wrapper">2
+            <input type="radio" name="sc" value="2">
+            <span class="checkmark"></span>
+        </label>
+        <label class="radio-wrapper">4
+            <input type="radio" name="sc" value="4">
+            <span class="checkmark"></span>
+        </label>
+        <label class="radio-wrapper">6
+            <input type="radio" name="sc" value="6">
+            <span class="checkmark"></span>
+        </label>
+        <label class="radio-wrapper">8
+            <input type="radio" name="sc" value="8">
+            <span class="checkmark"></span>
+        </label>
         <button id="sweet-chilli">Add</button>
     </div>
-    <div>
+    <div id="order-details">
           <span id="amount"></span><br>
           <span id="calories"></span><br>
           <span id="order-total"></span>   
-    <div>
         <button id="clear">
             Start Over
         </button>
-    </div>
-    <div id="city-names">
-
-
-    </div>
 </aside>     
       
-      <div id="bucket">
-      
-      </div>
-      
+<div id="bucket">
+
+</div>
+<div id="finish-container" style="display:none;">
+    <div id="finished">
+        <h2>Feeling for wings now, eh?</h2>
+        <p>See where you can get some by entering and choosing your city below.</p>
+        <input type="text" id="user-city" required placeholder="Enter your City">
+        <button type="submit" id="finish">Submit</button>
+        <div id="city-names"></div>
+        <div id="restaurants"></div>
+</div>      
       
       
       
