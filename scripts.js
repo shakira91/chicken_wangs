@@ -91,8 +91,11 @@ function ajaxCall(url) {
                     });
                 } else if (JSON.parse(xhr.responseText).restaurants.length > 0) {
                     document.getElementById("city-names").style.display = "none";
+                    document.getElementById("finish").style.display = "none";
+                    document.getElementById("user-city").style.display = "none";
+                    document.getElementById("call-out").innerHTML = "Here's some wing spots in your area to satisfy your craving..."
                     JSON.parse(xhr.responseText).restaurants.forEach((element)=>{
-                        document.getElementById("restaurants").innerHTML += "<br><strong>" + element.restaurant.name + "</strong><br>" + element.restaurant.location.address + "<br>" + element.restaurant.location.city + "<br><a href=" + element.menu_url + ">Check out the menu</a><br><br>"
+                        document.getElementById("restaurants").innerHTML += "<br><strong>" + element.restaurant.name + "</strong><br>" + element.restaurant.location.address + "<br>" + element.restaurant.location.city + "<br><a href=" + element.restaurant.menu_url + ">Check out the menu</a><br><br>"
                     });
                 } else {
                     alert("Sorry, Can't find any wing spots for that location.")

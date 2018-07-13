@@ -181,6 +181,11 @@ aside h2 {
      cursor: pointer;
  }
 
+ #restaurants {
+    overflow-y: scroll;
+    height: 800px;
+ }
+
 @-webkit-keyframes pop {
     0% { 
         opacity: 0;
@@ -224,3 +229,13 @@ aside h2 {
         opacity: 1;
     }
    }
+
+   @-webkit-keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+   @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
