@@ -10,7 +10,7 @@ body {
 
 aside {
     opacity: 0;
-    width: 350px;
+    width: 424px;
     height: 100%;
     background-color: #fdfdfd;
     position: fixed;
@@ -99,6 +99,7 @@ aside h2 {
     padding: 10px 30px;
     cursor: pointer;
     margin-top: 30px;
+    display: block;
 }
 
 #user-city {
@@ -109,7 +110,7 @@ aside h2 {
     width: 400px;
 }
 
-#plain, #bbq, #sweet-chilli {
+#plain, #bbq, #sweet-chilli, #plain-complete, #bbq-complete, #sweet-chilli-complete {
     border: none;
     text-decoration: underline;
     cursor: pointer;

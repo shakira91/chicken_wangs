@@ -36,21 +36,48 @@ class wingClass {
 
 function setUp(e) {
     if (e.target.id === "plain" && document.querySelector('input[name=plain]:checked')) {
-        e.target.parentElement.classList.add("disabled")
+        document.getElementById("plain").classList.add("disabled");
+        document.getElementById("plain-complete").classList.remove("disabled");
+        if (document.querySelector('input[name=plain]:checked').value != 24) {
+            document.getElementById("24-bbq").classList.add("disabled");
+            document.getElementById("24-sc").classList.add("disabled");
+        } else if (document.querySelector('input[name=plain]:checked').value == 24) {
+            alert("24 wings is the max.");
+            document.getElementById("bbq-wings").classList.add("disabled");
+            document.getElementById("sc-wings").classList.add("disabled");
+        }
         var wingOrderPlain = new wingClass(document.querySelector('input[name=plain]:checked').value, 0.98, "<div class='wing-container'><img class='wing' src='assets/wing.png'/></div>");
         wingOrderPlain.addWingAmountToDom();
         wingOrderPlain.getTotal()
         wingOrderPlain.getPrice();
         wingOrderPlain.getCalories()
     } else if (e.target.id === "bbq" && document.querySelector('input[name=bbq]:checked')) {
-        e.target.parentElement.classList.add("disabled")
+        document.getElementById("bbq").classList.add("disabled");
+        document.getElementById("bbq-complete").classList.remove("disabled");
+        if (document.querySelector('input[name=bbq]:checked').value != 24) {
+            document.getElementById("24-plain").classList.add("disabled");
+            document.getElementById("24-sc").classList.add("disabled");
+        } else if (document.querySelector('input[name=bbq]:checked').value == 24) {
+            alert("24 wings is the max.");
+            document.getElementById("plain-wings").classList.add("disabled");
+            document.getElementById("sc-wings").classList.add("disabled");
+        }
         var wingOrderBBQ = new wingClass(document.querySelector('input[name=bbq]:checked').value, 1.05, "<div class='wing-container'><img class='wing' src='assets/wing_bbq.png'/></div>");
         wingOrderBBQ.addWingAmountToDom();
         wingOrderBBQ.getTotal()
         wingOrderBBQ.getPrice();
         wingOrderBBQ.getCalories()
     } else if (e.target.id === "sweet-chilli" && document.querySelector('input[name=sc]:checked')) {
-        e.target.parentElement.classList.add("disabled")
+        document.getElementById("sweet-chilli").classList.add("disabled");
+        document.getElementById("sweet-chilli-complete").classList.remove("disabled");
+        if (document.querySelector('input[name=plain]:checked').value != 24) {
+            document.getElementById("24-plain").classList.add("disabled");
+            document.getElementById("24-bbq").classList.add("disabled");
+        } else if (document.querySelector('input[name=sc]:checked').value == 24) {
+            alert("24 wings is the max.");
+            document.getElementById("bbq-wings").classList.add("disabled");
+            document.getElementById("sc-wings").classList.add("disabled");
+        }
         var wingOrderSweetChilli = new wingClass(document.querySelector('input[name=sc]:checked').value, 1.19, "<div class='wing-container'><img class='wing' src='assets/wing_sc.png'/></div>");
         wingOrderSweetChilli.addWingAmountToDom();
         wingOrderSweetChilli.getTotal()
@@ -65,13 +92,6 @@ function setUp(e) {
         }
     }
 }
-
-var checkInputs = setInterval(function(){ 
-    if (document.querySelectorAll(".disabled").length == 3) {
-        document.getElementById("finish-container").style.display = "block";
-        clearInterval(checkInputs);
-    }
-}, 1000);
 
 function ajaxCall(url) {
     var xhr = new XMLHttpRequest();
@@ -89,6 +109,8 @@ function ajaxCall(url) {
                         cityName.setAttribute("id", element.id);
                         document.getElementById("city-names").appendChild(cityName);
                     });
+                    document.getElementById("user-city").style.display = "none";
+                    document.getElementById("finish").style.display = "none";
                 } else if (JSON.parse(xhr.responseText).restaurants.length > 0) {
                     document.getElementById("city-names").style.display = "none";
                     document.getElementById("finish").style.display = "none";
@@ -99,8 +121,7 @@ function ajaxCall(url) {
                     });
                 } else {
                     alert("Sorry, Can't find any wing spots for that location.")
-                }
-                           
+                }                      
             }           
             else {
                 return xhr.statusText;
@@ -110,14 +131,15 @@ function ajaxCall(url) {
     }  
 }
 
-
 document.addEventListener("click", function(e) { 
     setUp(e);
-    if (e.target.id === "finish") {
+    if (e.target.id === "plain-complete" || e.target.id === "bbq-complete" || e.target.id === "sweet-chilli-complete") {
+        document.getElementById("finish-container").style.display = "block";
+    } else if (e.target.id === "finish") {
         var city = document.getElementById("user-city").value;
-        ajaxCall("https://developers.zomato.com/api/v2.1/cities?q=" + city);
+        ajaxCall("https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/cities?q=" + city);
     }
-    if (cityID.indexOf(parseInt(e.target.id)) > -1) {
-       ajaxCall("https://developers.zomato.com/api/v2.1/search?entity_id="+ parseInt(e.target.id) + "&entity_type=city&q=wings");
+    else if (cityID.indexOf(parseInt(e.target.id)) > -1) {
+       ajaxCall("https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?entity_id="+ parseInt(e.target.id) + "&entity_type=city&q=wings");
     }
 });

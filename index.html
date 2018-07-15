@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Wingz</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0" />
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet">
 </head>
@@ -11,65 +11,77 @@
     
     
 <aside id="side-bar">
-    <div>
+    <div id="plain-wings">
         <h2>Plain</h2>
         <label class="radio-wrapper">2
-                <input type="radio" name="plain" value="2">
+                <input type="radio" name="plain" id="2-plain" value="2">
                 <span class="checkmark"></span>
             </label>
             <label class="radio-wrapper">4
-                <input type="radio" name="plain" value="4">
+                <input type="radio" name="plain" id="4-plain" value="4">
                 <span class="checkmark"></span>
             </label>
             <label class="radio-wrapper">6
-                <input type="radio" name="plain" value="6">
+                <input type="radio" name="plain" id="6-plain" value="6">
                 <span class="checkmark"></span>
             </label>
             <label class="radio-wrapper">8
-                <input type="radio" name="plain" value="8">
+                <input type="radio" name="plain" id="8-plain" value="8">
                 <span class="checkmark"></span>
             </label>
-        <button id="plain">Add</button>
+            <label class="radio-wrapper" id="24-plain">24
+                <input type="radio" name="plain" value="24">
+                <span class="checkmark"></span>
+            </label>
+        <button id="plain">Add</button> |<button id="plain-complete" class="disabled">Complete Order</button>
     </div>
-    <div>
+    <div id="bbq-wings">
         <h2>BBQ</h2>
         <label class="radio-wrapper">2
-                <input type="radio" name="bbq" value="2">
+                <input type="radio" name="bbq" id="2-bbq" value="2">
                 <span class="checkmark"></span>
             </label>
             <label class="radio-wrapper">4
-                <input type="radio" name="bbq" value="4">
+                <input type="radio" name="bbq" id="4-bbq" value="4">
                 <span class="checkmark"></span>
             </label>
             <label class="radio-wrapper">6
-                <input type="radio" name="bbq" value="6">
+                <input type="radio" name="bbq" id="6-bbq" value="6">
                 <span class="checkmark"></span>
             </label>
             <label class="radio-wrapper">8
-                <input type="radio" name="bbq" value="8">
+                <input type="radio" name="bbq" id="8-bbq" value="8">
                 <span class="checkmark"></span>
             </label>
-        <button id="bbq">Add</button>
+            <label class="radio-wrapper" id="24-bbq">24
+                <input type="radio" name="bbq" value="24">
+                <span class="checkmark"></span>
+            </label>
+        <button id="bbq">Add</button> |<button id="bbq-complete" class="disabled">Complete Order</button>
     </div>
-    <div>
+    <div id="sc-wings">
         <h2>Sweet Chilli</h2>
         <label class="radio-wrapper">2
-            <input type="radio" name="sc" value="2">
+            <input type="radio" name="sc" id="2-sc" value="2">
             <span class="checkmark"></span>
         </label>
         <label class="radio-wrapper">4
-            <input type="radio" name="sc" value="4">
+            <input type="radio" name="sc" id="4-sc" value="4">
             <span class="checkmark"></span>
         </label>
         <label class="radio-wrapper">6
-            <input type="radio" name="sc" value="6">
+            <input type="radio" name="sc" id="6-sc" value="6">
             <span class="checkmark"></span>
         </label>
         <label class="radio-wrapper">8
-            <input type="radio" name="sc" value="8">
+            <input type="radio" name="sc" id="8-sc" value="8">
             <span class="checkmark"></span>
         </label>
-        <button id="sweet-chilli">Add</button>
+        <label class="radio-wrapper" id="24-sc">24
+            <input type="radio" name="sc" value="24">
+            <span class="checkmark"></span>
+        </label>
+        <button id="sweet-chilli">Add</button> |<button id="sweet-chilli-complete" class="disabled">Complete Order</button>
     </div>
     <div id="order-details">
           <span id="amount"></span><br>
